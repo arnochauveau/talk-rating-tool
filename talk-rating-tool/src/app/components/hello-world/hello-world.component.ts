@@ -7,9 +7,11 @@ import { Component } from '@angular/core';
 })
 export class HelloWorldComponent {
   title = 'Hello World!';
+  numbers = [];
   counter = 0;
 
   IncreaseButtonClicked() {
     this.counter++;
+    this.numbers.push(this.counter);
   }
 }

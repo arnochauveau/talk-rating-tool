@@ -1,5 +1,10 @@
 {{ title }}
 
-<button (click)="IncreaseButtonClicked()">++</button>
-<div>{{ counter }}</div>
-<input type="text" readonly [value]="counter" />
+<button *ngIf="counter < 10" (click)="IncreaseButtonClicked()">++</button>
+<input
+  *ngFor="let value of numbers"
+  [ngClass]="{ even: value % 2 === 0 }"
+  type="text"
+  readonly
+  [value]="value"
+/>
