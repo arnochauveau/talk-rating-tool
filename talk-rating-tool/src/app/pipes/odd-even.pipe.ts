@@ -4,7 +4,7 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'oddEven',
 })
 export class OddEvenPipe implements PipeTransform {
-  transform(value: any, ...args: any[]): any {
+  transform(value: number): any {
     return value % 2 === 0 ? `even ${value}` : `odd ${value}`;
   }
 }
