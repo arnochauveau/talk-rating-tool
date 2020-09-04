@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-hello-world',
@@ -10,8 +10,12 @@ export class HelloWorldComponent {
   numbers = [];
   counter = 0;
 
+  @Input() maxAmount = 10;
+  @Output() amountChanged = new EventEmitter();
+
   IncreaseButtonClicked() {
     this.counter++;
     this.numbers.push(this.counter);
+    this.amountChanged.emit(this.counter);
   }
 }
