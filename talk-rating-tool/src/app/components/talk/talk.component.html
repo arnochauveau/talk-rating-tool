@@ -1,3 +1,6 @@
 <div>{{ talk.title }}</div>
 <app-speaker [speaker]="talk.speaker"></app-speaker>
-<app-rating [rating]="talk.rating"></app-rating>
+<app-rating
+  (updateRating)="talkRatingUpdated.emit({ id: talk.id, newRating: $event })"
+  [rating]="talk.rating"
+></app-rating>

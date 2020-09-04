@@ -45,4 +45,14 @@ export class TalksOverviewContainer {
       rating: 4,
     },
   ];
+
+  onTalkRatingUpdated({ id, newRating }) {
+    this.data = this.data.map((talk) => {
+      if (talk.id !== id) {
+        return talk;
+      }
+
+      return { ...talk, rating: newRating };
+    });
+  }
 }

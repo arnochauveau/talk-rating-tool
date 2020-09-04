@@ -1,3 +1,7 @@
 <div class="talks-container">
-  <app-talk *ngFor="let talk of data" [talk]="talk"></app-talk>
+  <app-talk
+    *ngFor="let talk of data"
+    [talk]="talk"
+    (talkRatingUpdated)="onTalkRatingUpdated($event)"
+  ></app-talk>
 </div>

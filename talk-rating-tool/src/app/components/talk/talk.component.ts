@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
 import { Talk } from 'src/app/models/talk.interface';
 
 @Component({
@@ -8,4 +8,5 @@ import { Talk } from 'src/app/models/talk.interface';
 })
 export class TalkComponent {
   @Input() talk: Talk;
+  @Output() talkRatingUpdated = new EventEmitter();
 }
