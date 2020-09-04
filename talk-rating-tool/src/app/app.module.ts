@@ -3,20 +3,11 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HelloWorldComponent } from './components/hello-world/hello-world.component';
-import { OddEvenPipe } from './pipes/odd-even.pipe';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HelloWorldComponent,
-    OddEvenPipe
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  declarations: [AppComponent],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

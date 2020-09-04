@@ -5,10 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
-  title = '';
-
-  onAmountChanged(newAmount: number) {
-    this.title = `The button was clicked ${newAmount} times.`;
-  }
-}
+export class AppComponent {}
