@@ -6,9 +6,10 @@ import { AppComponent } from './app.component';
 import { TalksOverviewContainer } from './containers/talks-overview/talks-overview.container';
 import { TalkComponent } from './components/talk/talk.component';
 import { SpeakerComponent } from './components/speaker/speaker.component';
+import { RatingComponent } from './components/rating/rating.component';
 
 @NgModule({
-  declarations: [AppComponent, TalksOverviewContainer, TalkComponent, SpeakerComponent],
+  declarations: [AppComponent, TalksOverviewContainer, TalkComponent, SpeakerComponent, RatingComponent],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
