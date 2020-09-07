@@ -1,15 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.container.html',
-  styleUrls: ['./login.container.scss']
+  styleUrls: ['./login.container.scss'],
 })
-export class LoginContainer implements OnInit {
+export class LoginContainer {
+  username = '';
+  password = '';
 
-  constructor() { }
+  constructor(private userService: UserService) {}
 
-  ngOnInit(): void {
+  onSubmit() {
+    const LoginSucceeded = this.userService.login(this.username, this.password);
+
+    if (!LoginSucceeded) {
+      window.alert('wrong username or password');
+    }
   }
-
 }

@@ -1,1 +1,26 @@
-<p>login works!</p>
+<div class="form-container">
+  <form (submit)="onSubmit()">
+    <label for="username">Username:</label>
+    <input
+      #usernameElement="ngModel"
+      type="text"
+      id="username"
+      name="username"
+      required
+      [(ngModel)]="username"
+    />
+    <label for="password">Password:</label>
+    <input
+      #passwordElement="ngModel"
+      type="password"
+      id="password"
+      name="password"
+      required
+      [(ngModel)]="password"
+    />
+    <input
+      type="submit"
+      [disabled]="passwordElement.invalid || usernameElement.invalid"
+    />
+  </form>
+</div>

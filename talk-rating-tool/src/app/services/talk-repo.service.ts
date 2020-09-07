@@ -19,4 +19,8 @@ export class TalkRepoService {
       ...talk,
     });
   }
+
+  addTalk(talk: Partial<Talk>) {
+    return this.httpClient.post(`${this.baseUrl}/talks`, talk);
+  }
 }

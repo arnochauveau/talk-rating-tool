@@ -1,1 +1,13 @@
-<p>talk-management works!</p>
+<div class="form-container">
+  <form [formGroup]="talkForm" (submit)="onSubmit()">
+    <label for="title">Title</label>
+    <input formControlName="title" type="text" id="title" required />
+    <label for="speakername">Speaker name</label>
+    <input formControlName="speakerName" type="text" id="speakerName" />
+    <label for="speakerImage">Speaker imagepath</label>
+    <input formControlName="speakerImage" type="text" id="speakerImage" />
+    <label for="rating">Rating</label>
+    <input formControlName="rating" type="number" min="1" max="5" id="rating" />
+    <input type="submit" [disabled]="talkForm.invalid" />
+  </form>
+</div>
