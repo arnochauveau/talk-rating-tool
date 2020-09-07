@@ -4,13 +4,8 @@ import { LoginContainer } from './containers/login/login.container';
 import { TalkManagementContainer } from './containers/talk-management/talk-management.container';
 
 const routes: Routes = [
-  {
-    path: 'admin',
-    children: [
-      { path: 'login', component: LoginContainer },
-      { path: 'manage', component: TalkManagementContainer },
-    ],
-  },
+  { path: 'login', component: LoginContainer },
+  { path: 'manage', component: TalkManagementContainer },
 ];
 
 @NgModule({

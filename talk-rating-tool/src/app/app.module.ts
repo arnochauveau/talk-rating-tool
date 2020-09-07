@@ -20,7 +20,7 @@ import { NavigationContainer } from './containers/navigation/navigation.containe
     RatingComponent,
     NavigationContainer,
   ],
-  imports: [BrowserModule, AdminModule, AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -8,6 +8,11 @@ const routes: Routes = [
     component: TalksOverviewContainer,
   },
   {
+    path: 'admin',
+    loadChildren: () =>
+      import('./modules/admin/admin.module').then((m) => m.AdminModule),
+  },
+  {
     path: '**',
     redirectTo: '/overview',
   },
