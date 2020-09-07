@@ -8,6 +8,8 @@ import { TalksOverviewContainer } from './containers/talks-overview/talks-overvi
 import { TalkComponent } from './components/talk/talk.component';
 import { SpeakerComponent } from './components/speaker/speaker.component';
 import { RatingComponent } from './components/rating/rating.component';
+import { AdminModule } from './modules/admin/admin.module';
+import { NavigationContainer } from './containers/navigation/navigation.container';
 
 @NgModule({
   declarations: [
@@ -16,8 +18,9 @@ import { RatingComponent } from './components/rating/rating.component';
     TalkComponent,
     SpeakerComponent,
     RatingComponent,
+    NavigationContainer,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, AdminModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })
