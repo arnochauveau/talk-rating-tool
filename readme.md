@@ -1,1 +1,3 @@
-# Angular traineeship
+# Exercise 10: NGRX
+
+## TODO
