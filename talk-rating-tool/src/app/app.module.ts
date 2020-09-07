@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,8 +10,14 @@ import { SpeakerComponent } from './components/speaker/speaker.component';
 import { RatingComponent } from './components/rating/rating.component';
 
 @NgModule({
-  declarations: [AppComponent, TalksOverviewContainer, TalkComponent, SpeakerComponent, RatingComponent],
-  imports: [BrowserModule, AppRoutingModule],
+  declarations: [
+    AppComponent,
+    TalksOverviewContainer,
+    TalkComponent,
+    SpeakerComponent,
+    RatingComponent,
+  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -1,6 +1,6 @@
 <div class="talks-container">
   <app-talk
-    *ngFor="let talk of data"
+    *ngFor="let talk of data$ | async"
     [talk]="talk"
     (talkRatingUpdated)="onTalkRatingUpdated($event)"
   ></app-talk>
