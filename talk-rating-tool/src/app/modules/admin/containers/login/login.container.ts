@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { UserService } from '../../services/user.service';
+import { Store } from '@ngrx/store';
+import { login } from '../../actions/admin.actions';
 
 @Component({
   selector: 'app-login',
@@ -10,13 +12,11 @@ export class LoginContainer {
   username = '';
   password = '';
 
-  constructor(private userService: UserService) {}
+  constructor(private store: Store) {}
 
   onSubmit() {
-    const LoginSucceeded = this.userService.login(this.username, this.password);
-
-    if (!LoginSucceeded) {
-      window.alert('wrong username or password');
-    }
+    this.store.dispatch(
+      login({ username: this.username, password: this.password })
+    );
   }
 }

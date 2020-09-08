@@ -7,26 +7,32 @@ import {
   Router,
 } from '@angular/router';
 import { Observable } from 'rxjs';
-import { UserService } from '../services/user.service';
+import { AdminState } from '../reducers/admin.reducer';
+import { Store } from '@ngrx/store';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserGuard implements CanActivate {
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(private store: Store, private router: Router) {}
 
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ):
+  canActivate():
     | Observable<boolean | UrlTree>
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    if (this.userService.isLoggedIn()) {
-      return true;
-    }
-
-    this.router.navigateByUrl('/admin/login');
+    return this.store
+      .select(
+        (state: { adminState: AdminState }) => state.adminState.isLoggedIn
+      )
+      .pipe(
+        map((isLoggedIn) => {
+          if (!isLoggedIn) {
+            this.router.navigateByUrl('/admin/login');
+          }
+          return isLoggedIn;
+        })
+      );
   }
 }

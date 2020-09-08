@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Talk } from 'src/app/models/talk.interface';
-import { Observable } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
-import { TalkRepoService } from 'src/app/services/talk-repo.service';
+import { Store } from '@ngrx/store';
+import { State } from 'src/app/reducers/app/reducer';
+import { ratingChanged, loadTalks } from 'src/app/actions/app.actions';
 
 @Component({
   selector: 'app-talks-overview',
@@ -10,17 +9,17 @@ import { TalkRepoService } from 'src/app/services/talk-repo.service';
   styleUrls: ['./talks-overview.container.scss'],
 })
 export class TalksOverviewContainer implements OnInit {
-  data$: Observable<Talk[]>;
+  data$ = this.store.select(
+    (state: { appState: State }) => state.appState.talks
+  );
 
-  constructor(private talkRepo: TalkRepoService) {}
+  constructor(private store: Store) {}
 
   ngOnInit() {
-    this.data$ = this.talkRepo.getTalks();
+    this.store.dispatch(loadTalks());
   }
 
   onTalkRatingUpdated({ id, newRating }) {
-    this.data$ = this.talkRepo
-      .updateTalk({ id, rating: newRating })
-      .pipe(switchMap(() => this.talkRepo.getTalks()));
+    this.store.dispatch(ratingChanged({ id, rating: newRating }));
   }
 }
